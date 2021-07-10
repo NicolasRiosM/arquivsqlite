@@ -24,6 +24,8 @@ while True:
     #consulta = "select (email, pass) from usuario"
     cur.execute("SELECT (email,pass) FROM usuario")
     respuesta=cur.fetchall()
+    cur.close()
+    
     '''datos = sock.recv(4096)
     if datos.decode('utf-8').find('login'):
         datos = datos[10:]
