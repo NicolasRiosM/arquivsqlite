@@ -62,7 +62,7 @@ while True:
         socket.send(bytes(mensaje,'utf-8'))
         continuar=socket.recv(4096)
         print(continuar)
-        if continuar==continuar.decode('utf-8').find('ok'):
+        if continuar.decode('utf-8').find('ok'):
             print("Ha ingresado con exito a su cuenta")
             break;
         else:
@@ -93,7 +93,7 @@ while True:
         
         recibido = socket.recv(4096)
         print(recibido[12:])
-        if (recibido!=None):
+        if recibido.decode('utf-8').find("ok"):
             break;
         
 while True:
