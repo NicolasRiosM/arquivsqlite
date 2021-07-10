@@ -88,7 +88,7 @@ while True:
         
         recibido = socket.recv(4096)
         print(recibido[12:])
-        if (recibido!=NULL):
+        if (recibido!=None):
             break;
         
 while True:
