@@ -5,7 +5,7 @@ import threading
 import sqlite3
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   
-s.bind(("127.0.0.1", 5000))
+s.connect(("localhost", 5000))
 s.send(bytes('00010sinitlogin','utf-8'))
 s.listen(1000)
 
