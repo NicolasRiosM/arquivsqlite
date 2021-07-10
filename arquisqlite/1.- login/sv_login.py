@@ -70,6 +70,16 @@ while True:
             print("Ha ingresado con éxito a su cuenta")
             s.send(bytes(mensaje,'utf-8'))
             break
+        else:
+            respuesta='login'
+            print(respuesta)
+
+            aux = llenado(len(respuesta))
+            mensaje = aux + respuesta
+
+            
+            s.send(bytes(mensaje,'utf-8'))
+            break
 #--------------------------------------------------------------#
 if (val!=1):
     print("Contraseña incorrecta")
