@@ -19,8 +19,8 @@ while True:
         datos = datos[10:]
         target = datos.decode()
         data = target.split()          
-    consulta = f"SELECT (email,pass) From usuarios"
-    respuesta = consultar(consulta)
+        consulta = f"SELECT (email,pass) From usuarios"
+        respuesta = consultar(consulta)
 #--------------------------------------------------------------#
     i=0
     while (i<len(respuesta)):
