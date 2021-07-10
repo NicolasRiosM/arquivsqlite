@@ -1,13 +1,14 @@
 import psycopg2
+import sqlite3
 
-conec = None
+con = None
 cur = None
 
 def conexion():
     try:
-        global conec
+        global con
         global cur
-        import sqlite3
+        
         con = sqlite3.connect('arqui.db')
         cur = con.cursor()
         print("Conexión con base de datos establecida")
@@ -17,12 +18,15 @@ def conexion():
     
 def consultar(sqlquery):
     cur.execute(sqlquery)
-    return cur.fetchall()
+    print(cur.fetchall())
+    cur.close()
+    con.close()
 
 def modificar(sqlquery):
-    cur.execute(sqlquery) 
-    conec.commit()  
-
+    cur.execute(sqlquery)
+    conec.commit()
+    cur.close()
+    con.close()
 def cerrar():
     try:
         cur.close()
