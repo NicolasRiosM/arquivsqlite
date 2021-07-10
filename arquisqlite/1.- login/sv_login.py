@@ -18,8 +18,15 @@ def recibir(sock, addr):
             datos = datos[10:]
             target = datos.decode()
             data = target.split()          
+        consulta = f"select (email, pass) from usuario"
+        respuesta = consultar(consulta)
+        '''datos = sock.recv(4096)
+        if datos.decode('utf-8').find('login'):
+            datos = datos[10:]
+            target = datos.decode()
+            data = target.split()          
             consulta = f"SELECT (email,pass) From usuarios"
-            respuesta = consultar(consulta)
+            respuesta = consultar(consulta)'''
     #--------------------------------------------------------------#
         i=0
         while (i<len(respuesta)):
@@ -58,10 +65,10 @@ def recibir(sock, addr):
                 s.send(bytes(mensaje,'utf-8'))
                 break
     #--------------------------------------------------------------#
-            if (val!=1):
-                print("Contraseña incorrecta")
-                
-            s.close()
+    if (val!=1):
+        print("Contraseña incorrecta")
+        
+    s.close()
 while True:
 	sock, addr = s.accept()
 	tarea = threading.Thread(target = recibir, args = (sock, addr))
