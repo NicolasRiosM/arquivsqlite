@@ -53,7 +53,7 @@ def recibir(sock, addr):
                 mensaje = aux + datos
         
                 print("Ha ingresado con éxito a su cuenta")
-                s.send(bytes('ok','utf-8')
+                s.send(bytes(mensaje,'utf-8'))
                 break
 #--------------------------------------------------------------#
     if (val!=1):
