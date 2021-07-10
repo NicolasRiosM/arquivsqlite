@@ -20,7 +20,7 @@ while True:
         datos = datos[10:]
         target = datos.decode()
         data = target.split()          
-    consulta = f"select (email, pass) from usuario"
+    consulta = 'select (email, pass) from usuario'
     respuesta = consultar(consulta)
     '''datos = sock.recv(4096)
     if datos.decode('utf-8').find('login'):
