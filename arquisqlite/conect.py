@@ -19,13 +19,13 @@ def consultar(sqlquery):
     cur.execute(sqlquery)
     print(cur.fetchall())
     cur.close()
-    conec.close()
+    con.close()
 
 def modificar(sqlquery):
     cur.execute(sqlquery)
     conec.commit()
     cur.close()
-    conec.close()
+    con.close()
 def cerrar():
     try:
         cur.close()
