@@ -23,7 +23,7 @@ def recibir(sock, addr):
             target = datos.decode()
             data = target.split()
         # verifica si hay mascotas
-        consulta = cursorObj.execute('SELECT nombre, edad, raza, descripcion, idmascota FROM mascota')
+        consulta = f"SELECT nombre, edad, raza, descripcion, idmascota FROM mascota"
 
         respuesta = consultar(consulta)
 
