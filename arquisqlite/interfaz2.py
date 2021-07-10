@@ -59,8 +59,10 @@ while True:
         mensaje = aux + 'login' + datos
         
         socket.send(bytes(mensaje,'utf-8'))
+        continuar=socket.recv(4096)
+        if continuar=='ok':
+            break;
         
-
         
     if(opcion == '2'):
         socket.send(bytes('00010getsvagusr','utf-8'))
@@ -85,8 +87,9 @@ while True:
         socket.send(bytes(mensaje,'utf-8'))
         
         recibido = socket.recv(4096)
-        print(recibido[10:])
-        
+        print(recibido[12:])
+        if (recibido!=NULL):
+            break;
         
 while True:
     opcion = input("""Que servicio desea: 
