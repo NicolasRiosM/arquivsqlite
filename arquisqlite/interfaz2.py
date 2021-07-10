@@ -212,12 +212,12 @@ while True:
                 #socket.send(bytes('00010getsvadddi','utf-8'))
 
                 #ID USUARIO:
-        consulta0= f"SELECT idusuario FROM usuario WHERE email='{email1}';"
+        consulta0= 'SELECT idusuario FROM usuario WHERE email="{email1}"'
         idusuario1 = consultar(consulta0)
         idusuario1 = limpiar(idusuario1)
 
                 #RELACION USUARIO PERRO
-        consulta1= f"SELECT idmascota FROM usuariomascota where idusuario = '{idusuario1}';"
+        consulta1= 'SELECT idmascota FROM usuariomascota where idusuario = "{idusuario1}"'
         idmascota1 = consultar(consulta1)
 
                 #PERROS DISPONIBLES
@@ -225,7 +225,7 @@ while True:
         for gg in idmascota1:
                 gg = limpiar(gg)
                         
-                a = consultar(cur.execute('SELECT nombre, edad, raza, descripcion, idmascota FROM mascota where idmascota = "{gg}";'))
+                a = consultar('SELECT nombre, edad, raza, descripcion, idmascota FROM mascota where idmascota = "{gg}"')
                 print(a)
 
                 #ingreso de ide
@@ -245,7 +245,7 @@ while True:
         
     if opcion== "4":
         socket.send(bytes('00010getsvviewd','utf-8'))
-        consulta = cur.execute('SELECT mascota.nombre, mascota.edad, mascota.raza, mascota.descripcion, usuario.nombre, usuario.apellido, usuario.contacto, usuario.email, usuario.region FROM mascota, usuario, usuariomascota WHERE mascota.idmascota = usuariomascota.idmascota AND usuario.idusuario = usuariomascota.idusuario;')
+        consulta = 'SELECT mascota.nombre, mascota.edad, mascota.raza, mascota.descripcion, usuario.nombre, usuario.apellido, usuario.contacto, usuario.email, usuario.region FROM mascota, usuario, usuariomascota WHERE mascota.idmascota = usuariomascota.idmascota AND usuario.idusuario = usuariomascota.idusuario'
         respuesta = consultar(consulta)
                 #print(respuesta)
         for i in respuesta:
@@ -273,7 +273,7 @@ while True:
         socket.send(bytes('00010getsveditu','utf-8'))
         email1 = email # aqui pasas el atributo de mail
         print("Sus datos de usuario: ")
-        consulta = f"SELECT nombre, apellido, rut, email, pass, contacto, region, tipodeusuario, idusuario FROM usuario WHERE email='{email1}';"
+        consulta ='SELECT nombre, apellido, rut, email, pass, contacto, region, tipodeusuario, idusuario FROM usuario WHERE email="{email1}";'
         datosU = consultar(consulta)
         n = datosU[0][0]
         a = datosU[0][1]
