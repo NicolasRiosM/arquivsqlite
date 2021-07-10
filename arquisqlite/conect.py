@@ -1,13 +1,14 @@
 import psycopg2
+import sqlite3
 
-conec = None
+con = None
 cur = None
 
 def conexion():
     try:
-        global conec
+        global con
         global cur
-        import sqlite3
+        
         con = sqlite3.connect('arqui.db')
         cur = con.cursor()
         print("Conexión con base de datos establecida")
