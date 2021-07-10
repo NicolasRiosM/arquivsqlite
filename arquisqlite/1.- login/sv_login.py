@@ -71,11 +71,9 @@ while True:
             s.send(bytes(mensaje,'utf-8'))
             break
         else:
-            respuesta='login'
-            print(respuesta)
-
-            aux = llenado(len(respuesta))
-            mensaje = aux + respuesta
+            
+            
+            mensaje = None
 
             
             s.send(bytes(mensaje,'utf-8'))
