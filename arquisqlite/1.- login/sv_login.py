@@ -49,8 +49,9 @@ while True:
         if data[0] == email and bcrypt.checkpw(encpass, enchash):
             val=1
             ok='ok'
+            
             datos = ok
-            aux = llenado(len(datos))
+            aux = llenado(len(datos+'login'))
             mensaje = aux + datos
     
             print("Ha ingresado con éxito a su cuenta")
