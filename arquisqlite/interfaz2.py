@@ -244,7 +244,7 @@ while True:
         
     if opcion== "4":
         socket.send(bytes('00010getsvviewd','utf-8'))
-        consulta = f"SELECT mascota.nombre, mascota.edad, mascota.raza, mascota.descripcion, usuario.nombre, usuario.apellido, usuario.contacto, usuario.email, usuario.region FROM mascota, usuario, usuariomascota WHERE mascota.idmascota = usuariomascota.idmascota AND usuario.idusuario = usuariomascota.idusuario;"
+        consulta = cursorObj.execute('SELECT mascota.nombre, mascota.edad, mascota.raza, mascota.descripcion, usuario.nombre, usuario.apellido, usuario.contacto, usuario.email, usuario.region FROM mascota, usuario, usuariomascota WHERE mascota.idmascota = usuariomascota.idmascota AND usuario.idusuario = usuariomascota.idusuario;')
         respuesta = consultar(consulta)
                 #print(respuesta)
         for i in respuesta:
