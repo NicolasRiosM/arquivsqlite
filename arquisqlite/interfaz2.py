@@ -20,8 +20,9 @@ def limpiar(var):
     var = var.replace(",","")
     return var
 
-        
-       
+
+con = sqlite3.connect('arqui.db')
+cur = con.cursor()
         
        
 #-------------------------interfaz--------------------------------------#
@@ -224,7 +225,7 @@ while True:
         for gg in idmascota1:
                 gg = limpiar(gg)
                         
-                a = consultar(f"SELECT nombre, edad, raza, descripcion, idmascota FROM mascota where idmascota = '{gg}';")
+                a = consultar(cur.execute('SELECT nombre, edad, raza, descripcion, idmascota FROM mascota where idmascota = "{gg}";'))
                 print(a)
 
                 #ingreso de ide
@@ -244,7 +245,7 @@ while True:
         
     if opcion== "4":
         socket.send(bytes('00010getsvviewd','utf-8'))
-        consulta = cursorObj.execute('SELECT mascota.nombre, mascota.edad, mascota.raza, mascota.descripcion, usuario.nombre, usuario.apellido, usuario.contacto, usuario.email, usuario.region FROM mascota, usuario, usuariomascota WHERE mascota.idmascota = usuariomascota.idmascota AND usuario.idusuario = usuariomascota.idusuario;')
+        consulta = cur.execute('SELECT mascota.nombre, mascota.edad, mascota.raza, mascota.descripcion, usuario.nombre, usuario.apellido, usuario.contacto, usuario.email, usuario.region FROM mascota, usuario, usuariomascota WHERE mascota.idmascota = usuariomascota.idmascota AND usuario.idusuario = usuariomascota.idusuario;')
         respuesta = consultar(consulta)
                 #print(respuesta)
         for i in respuesta:
