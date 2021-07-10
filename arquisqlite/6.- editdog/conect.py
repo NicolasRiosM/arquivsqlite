@@ -18,9 +18,9 @@ def conexion():
     
 def consultar(sqlquery):
     cur.execute(sqlquery)
-    print(cur.fetchall())
-    cur.close()
-    con.close()
+   
+    return cur.fetchall()
+    
 
 def modificar(sqlquery):
     cur.execute(sqlquery)
