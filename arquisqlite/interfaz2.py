@@ -61,9 +61,13 @@ while True:
         
         socket.send(bytes(mensaje,'utf-8'))
         continuar=socket.recv(4096)
-        if continuar=='ok':
-            break;
         
+        if continuar==continuar.decode('utf-8').find('ok'):
+            print("Ha ingresado con exito a su cuenta")
+            break;
+        else:
+            print("Usuario o clave incorrecta")
+            
         
     if(opcion == '2'):
         socket.send(bytes('00010getsvagusr','utf-8'))

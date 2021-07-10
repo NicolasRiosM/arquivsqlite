@@ -17,7 +17,7 @@ def recibir(sock, addr):
             datos = datos[10:]
             target = datos.decode()
             data = target.split()          
-        consulta = cursorObj.execute('SELECT (email,pass) From usuarios')
+        consulta = f"SELECT (email,pass) From usuarios"
         respuesta = consultar(consulta)
 #--------------------------------------------------------------#
         i=0
@@ -47,6 +47,11 @@ def recibir(sock, addr):
             val=0
             if data[0] == email and bcrypt.checkpw(encpass, enchash):
                 val=1
+                ok='ok'
+                datos = ok
+                aux = llenado(len(datos))
+                mensaje = aux + datos
+        
                 print("Ha ingresado con éxito a su cuenta")
                 s.send(bytes('ok','utf-8')
                 break
