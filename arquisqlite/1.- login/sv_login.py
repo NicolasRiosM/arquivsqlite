@@ -4,7 +4,8 @@ import bcrypt
 import threading
 import sqlite3
 import sys
-
+con = sqlite3.connect('arqui.db')
+cur = con.cursor()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   
 s.connect(("localhost", 5000)) 
 s.send(bytes('00010sinitlogin','utf-8'))
@@ -20,8 +21,9 @@ while True:
         datos = datos[10:]
         target = datos.decode()
         data = target.split()          
-    consulta = "select (email, pass) from usuario"
-    respuesta = consultar(consulta)
+    #consulta = "select (email, pass) from usuario"
+    cur.execute("SELECT (email,pass) FROM usuario")
+    respuesta=cur.fetchall()
     '''datos = sock.recv(4096)
     if datos.decode('utf-8').find('login'):
         datos = datos[10:]
