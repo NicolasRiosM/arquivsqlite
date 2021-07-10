@@ -7,6 +7,7 @@ import sys
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   
 s.bind(("localhost", 5000))
+s.recv(4096)
 s.listen(1000)
 
 def recibir(sock, addr):
@@ -57,10 +58,10 @@ def recibir(sock, addr):
                 s.send(bytes(mensaje,'utf-8'))
                 break
     #--------------------------------------------------------------#
-    if (val!=1):
-        print("Contraseña incorrecta")
-        
-    s.close()
+            if (val!=1):
+                print("Contraseña incorrecta")
+                
+            s.close()
 while True:
 	sock, addr = s.accept()
 	tarea = threading.Thread(target = recibir, args = (sock, addr))
