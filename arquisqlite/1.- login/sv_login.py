@@ -6,9 +6,11 @@ import sqlite3
 import sys
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   
-s.bind(("localhost", 5000))
-s.recv(4096)
-s.listen(1000)
+s.connect(("localhost", 5000)) 
+s.send(bytes('00010sinitlogin','utf-8'))
+recibido=s.recv(4096)
+print(recibido)
+
 
 def recibir(sock, addr):
     print("Ingresando a la cuenta de usuario")
