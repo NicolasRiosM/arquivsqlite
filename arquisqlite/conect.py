@@ -17,12 +17,15 @@ def conexion():
     
 def consultar(sqlquery):
     cur.execute(sqlquery)
-    return cur.fetchall()
+    print(cur.fetchall())
+    cur.close()
+    conec.close()
 
 def modificar(sqlquery):
-    cur.execute(sqlquery) 
-    conec.commit()  
-
+    cur.execute(sqlquery)
+    conec.commit()
+    cur.close()
+    conec.close()
 def cerrar():
     try:
         cur.close()

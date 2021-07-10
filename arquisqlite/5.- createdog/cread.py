@@ -45,7 +45,7 @@ def recibir(sock, addr):
         idusuario1 = limpiar(idusuario1)
         
         #ingresa a la mascota 
-        consulta = cursorObj.execute('''INSERT INTO mascota (nombre, edad, raza, descripcion) VALUES ("{data[0]}","{data[1]}", "{data[2]}","{data[3]}")''')
+        consulta = cursorObj.execute('INSERT INTO mascota (nombre, edad, raza, descripcion) VALUES ("{data[0]}","{data[1]}", "{data[2]}","{data[3]}")')
         respuesta = modificar(consulta)
         
         #selecciona id de la mascota 
@@ -54,7 +54,7 @@ def recibir(sock, addr):
         idmascota1 = limpiar(idmascota1)
 
         #relaciona mascota con usuario
-        consulta1 = cursorObj.execute('''INSERT INTO usuariomascota (idusuario, idmascota) VALUES ("{idusuario1[0]}", "{idmascota1[0]}")''')
+        consulta1 = cursorObj.execute('INSERT INTO usuariomascota (idusuario, idmascota) VALUES ("{idusuario1[0]}", "{idmascota1[0]}")')
         respuesta1 = modificar(consulta1)
         
         if respuesta and respuesta1 == None:
